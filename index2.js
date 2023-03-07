@@ -18,5 +18,8 @@ function main(){
     app.get("/test" , (req,res)=>{
         res.sendFile( __dirname + "/public/page2.html");
     });
+   
+
+    
 }
 main();

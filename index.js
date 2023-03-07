@@ -1,16 +1,18 @@
-const express = require('express');
-const app = express();
-const port = 3000;
+const express = require("express");
+const app = express();  //intialisation de l'application web 
+const port = 3000;      //port sur lequel le serveur web est lancé
 
+function main() {
 
-function main(){
-
-    app.use(express.static("public"));
-
-    app.listen(port , () => {
-        console.log(`Example app listening on port   ${port}`);
-
+    app.get("/", (req,res) => {
+        const dt = new Date();
+        res.send("Hello world");
+        console.log(dt);
     });
-
+    
+    app.listen(port, function() {
+        console.log(`Serveur lancé sur port ${port}`);
+    });
 }
+
 main();

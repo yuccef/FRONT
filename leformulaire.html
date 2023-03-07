@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Formulaire</title>  <!--le titre -->
+    <style>
+
+
+body {    /* la on a la phase de css qui presente le designe de l'interface*/
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;   
+    font-size: 0.8em;
+    background-color: #f7eded;
+    ;
+    
+    }
+    main#contenu {
+        padding: 0 30px 0 100px
+        }
+       
+        main#contenu h2 {
+        padding-left: 25px; 
+        font-size: 1.4em;
+        color: #34457de1;
+        border-bottom: 1px #34457de1 ;
+        }
+     
+        main#contenu p {
+        text-align: justify;
+        text-indent: 2em; 
+        line-height: 1.7em;
+        }
+       
+        p#footer {
+        background: #6d71c5e1;
+        padding: 5px; 
+        font-size: 1.2em;
+        color: #FFFFFF;
+        text-align: center;
+        }
+        h1#header a {
+            display: block;
+            position: relative; 
+            width: 205px; 
+            padding: 5px;
+            border-radius: 5px; 
+            color: #001a33;
+            text-decoration: none; 
+            background: rgba(59, 84, 194, 0.491)
+           
+            }
+            
+          
+            ul#menu {
+            height: 35px; 
+            margin: 0;
+            padding: 0;
+            background: #87a3dcbf;
+            list-style-type: none; 
+            }
+           
+            ul#menu li {
+            float: left; 
+            text-align: center;
+            }
+            
+            ul#menu li a {
+            display: block;  
+            width: 135px;
+            line-height: 35px; 
+            font-size: 1.2em;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: #ffffff;
+            text-decoration: none;
+            border-right: 2px solid #ffffff;
+            }
+            
+            ul#menu li a:hover {
+            color: #d3aedce1;
+            }
+    div#conteneur {
+    width: 700px;
+    margin: 0 auto;
+    border: 2px solid #000000;
+    background-color:  #e9d6eee1;
+    }
+     
+    </style>
+  </head>
+  
+  <body>
+    <h2 style="text-align: center;">Formulaire </h2>  
+    <form name="RegForm" action="/submit.php" onsubmit="return test()" method="post" > <!--l'appel de la fonction de javascript qui concerne la verification de rempissage -->
+        
+      <div>                                  <!--la case de nom-->
+        <h4 align="center" hspace="10" vspace="6"><label for="Nom">Nom:</label></h4>
+         <h4 align="center" hspace="10" vspace="6"><input type="text" id="Nom" size="60" name="Nom" placeholder='Indiquez votre nom' /></h4>
+      </div>
+      <br />
+      <div>                                    <!--la case de prenom-->
+        <h4 align="center" hspace="10" vspace="6"><label for="Prenom">Prenom:</label></h4> 
+            <h4 align="center" hspace="10" vspace="6"> <input type="text" id="Prenom" size="60" name="Prenom" placeholder='Indiquez votre Prenom' /></h4>
+      </div>
+      <br />
+      <div>                                    <!--la case d'id-->
+        <h4 align="center" hspace="10" vspace="6"><label for="id">ID:</label></h4> 
+            <h4 align="center" hspace="10" vspace="6"> <input type="number" id="id" size="60" name="id" placeholder='Indiquez votre id' /></h4>
+      </div>
+      <br />
+     
+      <div>                                      <!--la case de mail-->
+        <h4 align="center" hspace="10" vspace="6"><label for="E-mail" l>Adresse electronique:</label></h4>
+            <h4 align="center" hspace="10" vspace="6"><input type="text" id="E-mail" size="60" name="Email" placeholder='Indiquez votre mail' /></h4>
+      </div>
+      <br />
+      <br /> 
+      <div>                                  <!--la case de pays-->
+        <h4 align="center" hspace="10" vspace="6"><label for="pays">pays:</label></h4>
+         <h4 align="center" hspace="10" vspace="6"><input type="text" id="pays" size="60" name="pays" placeholder='Indiquez votre pays' /></h4>
+      </div> 
+      <div>                                      <!--la case de societe -->
+        <h4 align="center" hspace="10" vspace="6"> <label for="Societe">Societe: </label></h4>
+        <h4 align="center" hspace="10" vspace="6"> <input type="text" id="Societe" size="60" name="Téléphone" placeholder='Indiquez votre  de societe'/></h4>
+      </div>
+      <div>                                        <!--la case de date de creation -->
+        <h4 align="center" hspace="10" vspace="6"><label for="naissance">Date de creation:</label></h4>
+            <h4 align="center" hspace="10" vspace="6"><input type="date" id="date" size="60" name="date"  /></h4>
+      </div>
+      <br />
+      <br />
+      <div class="buttons">          <!--la case pour la validation de formulaire-->
+        <h4 align="center" hspace="10" vspace="6"> <input  href= ""  type="submit" value="Valider le formulaire" name="Valider le formulaire" /></h4>
+              
+      </div>
+     
+
+    </form>
+    <script>
+      function test() { //la fonction qui va verifier le remplissage des cases
+
+        var name = document.forms["RegForm"]["Nom"];  
+        var prenom = document.forms["RegForm"]["Prenom"];
+        var id = document.forms["RegForm"]["id"];
+        var email = document.forms["RegForm"]["Email"];
+        var societe = document.forms["RegForm"]["Societe"];
+        var pays = document.forms["RegForm"]["pays"];
+        var date = document.forms["RegForm"]["date"];
+
+        if (name.value == "") {     //si la case de nom est vide presenter alerte
+          alert("Mettez votre nom.");
+          name.focus();
+          return false;
+        }
+        if (prenom.value == "") { //si la case de prenom est vide presenter alerte
+          alert("Mettez votre prenom.");
+          prenom.focus();
+          return false;
+        }
+        if (email.value == "") {  //si la case de mail est vide presenter alerte
+          alert("Mettez une adresse email valide.");
+          email.focus();
+          return false;
+        }
+        if (email.value.indexOf("@", 0) < 0) {  //si le mail ne pas valide presenter alerte
+          alert("Mettez une adresse email valide.");
+          email.focus();
+          return false;
+        }
+        if (email.value.indexOf(".", 0) < 0) {    //si le mail ne pas valide presenter alerte
+          alert("Mettez une adresse email valide.");
+          email.focus();
+          return false;
+        }
+        if (societe.value == "") {   //si la case de numero  est vide presenter alerte
+          alert("Mettez le nom de  Societe.");
+          societe.focus();
+          return false;
+        
+        }
+
+        if (pays.value == "") {   //si la case de numero  est vide presenter alerte
+          alert("Mettez le nom de pays.");
+          societe.focus();
+          return false;
+        
+        }
+        if (id.value == "") {   //si la case de numero  est vide presenter alerte
+          alert("Mettez l'id.");
+          societe.focus();
+          return false;
+        
+        }
+        if (naissance.value == "") {  //si la case de la date de naissance  est vide presenter alerte
+          alert("Saisissez votre date de creation");
+          naissance.focus();
+          return false;
+        }
+        return true;
+      }
+    </script>
+  </body>
+</html>

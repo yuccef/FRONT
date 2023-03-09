@@ -30,7 +30,7 @@ const customers = [
 
 addEventListener("DOMContentLoaded",
 function(){
-    log.console("le fichier est chargé");
+    console.log("le fichier est chargé");
     $("#customers").loadTemplate($("#tpnCustomer"),customers);
 
 });
